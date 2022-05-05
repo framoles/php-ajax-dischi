@@ -15,6 +15,7 @@
 <body>
     <div id="app">
         <header>
+            <img src="https://www.freepnglogos.com/uploads/spotify-logo-png/spotify-download-logo-30.png" alt="logo">
             <select @change="displaySelected($event)">
                 <option value="Genere">Genere</option>
                 <option value="Pop">Pop</option>
@@ -25,8 +26,8 @@
         </header>
         <main>
             <div v-for="(item, index) in array" :key="index" class="card">
-                <img :src="item.poster" :alt="item.title" />
-                <p>{{ item.title }}</p>
+                <div class="poster"><img :src="item.poster" :alt="item.title" /></div>
+                <p class="title">{{ item.title }}</p>
                 <p>{{ item.author }}</p>
                 <p>{{ item.year }}</p>
             </div>
