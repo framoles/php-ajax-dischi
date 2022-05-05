@@ -15,16 +15,16 @@
 <body>
     <div id="app">
         <header>
+            <!-- logo -->
             <img src="https://www.freepnglogos.com/uploads/spotify-logo-png/spotify-download-logo-30.png" alt="logo">
+            <!-- select con option dinamiche -->
             <select @change="displaySelected($event)">
                 <option value="Genere">Genere</option>
-                <option value="Pop">Pop</option>
-                <option value="Metal">Metal</option>
-                <option value="Jazz">Jazz</option>
-                <option value="Rock">Rock</option>
+                <option v-for="item in genere" :value="item">{{item}}</option>
             </select>
         </header>
         <main>
+            <!-- stampa dinamica dei brani presente nel database  -->
             <div v-for="(item, index) in array" :key="index" class="card">
                 <div class="poster"><img :src="item.poster" :alt="item.title" /></div>
                 <p class="title">{{ item.title }}</p>
