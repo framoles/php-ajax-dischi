@@ -1,5 +1,8 @@
 <?php
 
+header('Content-Type: application/json');
+
+
 $songs = [
 
 ["author" => "Bon Jovi",
@@ -57,6 +60,23 @@ $songs = [
 
 header('Content-Type: application/json');
 
-echo json_encode($songs);
+
+
+
+if(isset($_GET["filtergenre"]) && $_GET["filtergenre"]!="Genere")
+{
+
+    $filter = [];
+
+    foreach ($songs as $song)
+    {
+        if($song["genre"] == $_GET["filtergenre"])
+        {
+            $filter[] = $song;
+        }
+    }
+    echo json_encode($filter);
+}
+else{echo json_encode($songs);}
 
 ?>
